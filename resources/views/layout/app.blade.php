@@ -35,8 +35,8 @@
 
         <ul class="flex">
             @guest
-                <li class="mx-4 hover:text-blue-500"><a href="#">{{ __('login') }}</a></li>
-                <li class="mx-4 hover:text-blue-500"><a href="#">{{ __('register') }}</a></li>
+                <li class="mx-4 hover:text-blue-500"><a href="{{ route('login') }}">{{ __('login') }}</a></li>
+                <li class="mx-4 hover:text-blue-500"><a href="{{ route('register') }}">{{ __('register') }}</a></li>
             @else
                 <li class="mx-4 hover:text-blue-400"><a href="#">{{ __('Me') }}</a></li>
                 <li>
