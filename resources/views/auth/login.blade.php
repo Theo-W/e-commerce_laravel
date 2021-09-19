@@ -15,13 +15,13 @@
                         <label for="email"
                                class="text-sm text-gray-600 dark:text-gray-400">{{ __('E-Mail Address') }}</label>
                         <input id="email" type="email"
-                               class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                               class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500 @error('email') border-red-500 @enderror"
                                name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                         @error('email')
-                        <span class="text-red-500 text-xs italic" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                            <span class="text-red-500 text-xs italic" role="alert">
+                                 <strong>{{ $message }}</strong>
+                             </span>
                         @enderror
                     </div>
 
@@ -29,7 +29,7 @@
                         <label for="password"
                                class="text-md text-gray-600 dark:text-gray-400">{{ __('Password') }}</label>
                         <input id="password" type="password"
-                               class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500 @error('password') border-red-700 @enderror"
+                               class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500 @error('password') border-red-500 @enderror"
                                name="password" required
                                autocomplete="current-password">
 
