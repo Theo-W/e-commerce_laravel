@@ -21,6 +21,14 @@
                         </th>
                         <th
                             class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                            Color
+                        </th>
+                        <th
+                            class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                            Background
+                        </th>
+                        <th
+                            class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                             Ajouter
                         </th>
                         <th class="px-6 py-3 border-b border-gray-200 bg-gray-50"></th>
@@ -32,9 +40,24 @@
                         <tr>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                 <div class="flex items-center">
-                                    <div class="flex-shrink-0 h-10 w-10">
+                                    <div class="flex-shrink-0 h-7 w-10">
                                         {{ $statu->name }}
                                     </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-2 whitespace-no-wrap border-b border-gray-200">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 h-7 w-10">
+                                        <div class="text-{{ $statu->color }}-500">
+                                            {{ $statu->color }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-2 whitespace-no-wrap border-b border-gray-200">
+                                <div class="flex justify-start">
+                                    <div
+                                        class="bg-{{ $statu->background }}-500 flex-shrink-0 h-5 w-5 rounded-full"></div>
                                 </div>
                             </td>
 
@@ -44,7 +67,8 @@
 
                             <td
                                 class=" flex items-center px-6 py-6 whitespace-no-wrap border-b border-gray-200">
-                                <a href="{{ route('admin.status.edit', ['id' => $statu->id ]) }}" class="text-blue-500  hover:text-blue-400"><i
+                                <a href="{{ route('admin.status.edit', ['id' => $statu->id ]) }}"
+                                   class="text-blue-500  hover:text-blue-400"><i
                                         class="far fa-edit text-2xl"></i>
                                 </a>
                                 @include('admin.status.modal._delete')

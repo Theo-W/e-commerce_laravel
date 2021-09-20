@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\AdminStatusController;
+use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use Illuminate\Support\Facades\Route;
@@ -24,12 +25,21 @@ Route::middleware('auth')->group(function () {
         Route::get('/', [AdminHomeController::class, 'home'])->name('home');
 
         Route::prefix('/category')->name('category.')->group(function () {
-            Route::get('/', [CategoryController::class, 'index'])->name('index');
-            Route::get('/create', [CategoryController::class, 'create'])->name('create');
-            Route::post('/create/store', [CategoryController::class, 'store'])->name('create.store');
-            Route::get('/edit/{id}', [CategoryController::class, 'edit'])->name('edit');
-            Route::post('/create/{id}', [CategoryController::class, 'update'])->name('edit.update');
-            Route::delete('/delete/{id}', [CategoryController::class, 'delete'])->name('delete');
+            Route::get('/', [AdminCategoryController::class, 'index'])->name('index');
+            Route::get('/create', [AdminCategoryController::class, 'create'])->name('create');
+            Route::post('/create/store', [AdminCategoryController::class, 'store'])->name('create.store');
+            Route::get('/edit/{id}', [AdminCategoryController::class, 'edit'])->name('edit');
+            Route::post('/create/{id}', [AdminCategoryController::class, 'update'])->name('edit.update');
+            Route::delete('/delete/{id}', [AdminCategoryController::class, 'delete'])->name('delete');
+        });
+
+        Route::prefix('/status')->name('status.')->group(function () {
+            Route::get('/', [AdminStatusController::class, 'index'])->name('index');
+            Route::get('/create', [AdminStatusController::class, 'create'])->name('create');
+            Route::post('/create/store', [AdminStatusController::class, 'store'])->name('create.store');
+            Route::get('/edit/{id}', [AdminStatusController::class, 'edit'])->name('edit');
+            Route::post('/edit/{id}', [AdminStatusController::class, 'update'])->name('edit.update');
+            Route::delete('/delete/{id}', [AdminStatusController::class, 'delete'])->name('delete');
         });
     });
 

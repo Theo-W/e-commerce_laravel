@@ -22,11 +22,15 @@ class AdminStatusController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|min:3'
+            'name' => 'required|min:3',
+            'color' => 'required',
+            'background' => 'required'
         ]);
 
         Status::create([
-           'name' =>  $request->get('name')
+           'name' =>  $request->get('name'),
+            'color' => $request->get('color'),
+            'background' => $request->get('background')
         ]);
 
         return redirect()->route('admin.status.index');
@@ -34,7 +38,7 @@ class AdminStatusController extends Controller
 
     public function edit(int $id, Request $request)
     {
-        $status = Status::find($id)->first();
+        $status = Status::find($id);
 
         return view('admin.status.edit', compact('status'));
     }
@@ -42,11 +46,15 @@ class AdminStatusController extends Controller
     public function update(int $id, Request $request)
     {
         $request->validate([
-            'name' => 'required|min:3'
+            'name' => 'required|min:3',
+            'color' => 'required',
+            'background' => 'required'
         ]);
 
         Status::find($id)->update([
-            'name' => $request->get('name')
+            'name' => $request->get('name'),
+            'color' => $request->get('color'),
+            'background' => $request->get('background')
         ]);
 
         return redirect()->route('admin.status.index');
