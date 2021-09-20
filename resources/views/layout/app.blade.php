@@ -53,9 +53,11 @@
         </ul>
     </nav>
 </header>
-<div class="container mx-auto px-5">
-    @yield('content')
-    @livewireScripts
-</div>
+<main clas="bg-gray-100">
+    <div class="container mx-auto px-5">
+        @yield('content')
+        @livewireScripts
+    </div>
+</main>
 </body>
 </html>
