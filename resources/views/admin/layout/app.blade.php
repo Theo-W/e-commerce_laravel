@@ -67,7 +67,7 @@
                     <span class="mx-3">Status</span>
                 </a>
                 <a class="flex items-center ml-2 py-2 px-6 text-black hover:text-blue-500"
-                   href="{{ route('admin.category.index') }}">
+                   href="{{ route('admin.article.index') }}">
                     <i class="far fa-folder-open"></i>
                     <span class="mx-3">Articles</span>
                 </a>

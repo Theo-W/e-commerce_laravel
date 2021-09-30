@@ -2,12 +2,12 @@
 
 @section('content')
     <div class="flex justify-center mt-12 ">
-        <div class="bg-gray-200 w-5/12 rounded p-12">
+        <div class="bg-white w-5/12 rounded-xl p-12">
             <div class="flex justify-center text-4xl text-blue-700">
                 {{ __('Login') }}
             </div>
 
-            <div class="flex justify-center mt-5">
+            <div class="flex w-full justify-center mt-5">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
 

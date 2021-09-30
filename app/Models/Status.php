@@ -10,4 +10,9 @@ class Status extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'color', 'background'];
+
+    public function article()
+    {
+        return $this->BelongsTo(Article::class);
+    }
 }

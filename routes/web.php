@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminArticleController;
 use App\Http\Controllers\Admin\AdminStatusController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\HomeController;
@@ -40,6 +41,13 @@ Route::middleware('auth')->group(function () {
             Route::get('/edit/{id}', [AdminStatusController::class, 'edit'])->name('edit');
             Route::post('/edit/{id}', [AdminStatusController::class, 'update'])->name('edit.update');
             Route::delete('/delete/{id}', [AdminStatusController::class, 'delete'])->name('delete');
+        });
+
+        Route::prefix('/article')->name('article.')->group(function () {
+            Route::get('/', [AdminArticleController::class, 'index'])->name('index');
+            Route::get('/create', [AdminArticleController::class, 'create'])->name('create');
+            Route::get('/edit/{id}', [AdminArticleController::class, 'edit'])->name('edit');
+            Route::delete('/delete/{id}', [AdminArticleController::class, 'delete'])->name('delete');
         });
     });
 
